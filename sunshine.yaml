@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sunshine-deployment
+  labels:
+    app: sunshine
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:      
+      app: sunshine
+  template:
+    metadata:
+      labels:
+        app: sunshine
+    spec:
+      containers:
+      - name: sunshine
+        image: 678939737460.dkr.ecr.us-east-2.amazonaws.com/sunshine-ecr:latest
+        ports:
+        - containerPort: 80
+
